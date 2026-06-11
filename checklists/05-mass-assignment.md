@@ -38,7 +38,7 @@ If the controller does `user.update(request.body)`, Alice is now admin.
 ## Tests
 
 - For each editable resource: try setting fields that should be read-only (admin flags, ownership, timestamps).
-- Use the API's own response body as a baseline of "fields this object has", then send all of them back in an update — see which got accepted.
+- Use the API's own response body as a baseline of "fields this object has", then send all of them back in an update, see which got accepted.
 - Test PATCH with extra keys not in the documented schema.
 
 ## Mitigations

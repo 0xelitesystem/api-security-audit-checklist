@@ -6,7 +6,7 @@ Specific authentication failures that bypass even otherwise-correct authorizatio
 
 ### JWT
 
-- Algorithm enforced server-side. Don't accept `alg: none`. Don't accept `alg` from the token itself — pin it in code.
+- Algorithm enforced server-side. Don't accept `alg: none`. Don't accept `alg` from the token itself, pin it in code.
 - Signature actually verified, not just decoded.
 - Standard claims checked: `exp`, `nbf`, `iss`, `aud`.
 - Public keys retrieved from a trusted source (JWKS endpoint with TLS) and cached with reasonable TTL.
@@ -24,7 +24,7 @@ Specific authentication failures that bypass even otherwise-correct authorizatio
 - Rate limit per username AND per IP. Per-IP alone is bypassed by botnets; per-username alone is bypassed by spraying.
 - Generic error messages: "invalid email or password" not "user not found" / "wrong password".
 - Timing-equivalent responses for valid vs invalid usernames (use a constant-time comparison; perform the password hash even when the user doesn't exist, to equalize timing).
-- Track failed login counts; lock after threshold (with sane unlock — usually time-based, not "must contact support").
+- Track failed login counts; lock after threshold (with sane unlock, usually time-based, not "must contact support").
 
 ## Password reset
 

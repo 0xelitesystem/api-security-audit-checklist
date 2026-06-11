@@ -16,13 +16,13 @@ gRPC's strong typing and code generation cover some attack surface but introduce
 
 ## Authorization
 
-- gRPC interceptors for authz checks — applied uniformly across all RPCs?
+- gRPC interceptors for authz checks, applied uniformly across all RPCs?
 - Method-level checks: each `service Foo { rpc Bar }` gets its own authz, not a global "authenticated" check.
 - For streaming RPCs: is authz checked on the initial call only, or also as messages arrive (relevant for long-lived streams where the user's permissions might change)?
 
 ## Resource limits
 
-- `max_receive_message_length` and `max_send_message_length` set explicitly. The default (4 MB) is often too high for some RPCs and too low for others — set per service.
+- `max_receive_message_length` and `max_send_message_length` set explicitly. The default (4 MB) is often too high for some RPCs and too low for others, set per service.
 - `max_concurrent_streams` configured.
 - Keep-alive parameters tuned (avoid keep-alive flooding DoS).
 - Per-RPC timeouts enforced server-side, not just client-suggested.

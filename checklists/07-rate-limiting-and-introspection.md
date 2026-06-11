@@ -7,7 +7,7 @@
 - Per-user / per-token, not just per-IP. Authenticated abuse should still be limited.
 - Per-IP, especially on unauthenticated endpoints.
 - Per-API-key for B2B integrations.
-- Per-endpoint differently — login deserves tighter limits than `/health`.
+- Per-endpoint differently, login deserves tighter limits than `/health`.
 - Specifically high-cost endpoints: search, export, report, image processing, anything that calls a third-party service.
 
 ### How to fail
@@ -18,8 +18,8 @@
 
 ### Specific tests
 
-- Burst tests (1000 requests in 1 second) — does the limit kick in?
-- Distributed tests (100 IPs, 10 each) — does per-user / per-token limit catch what per-IP doesn't?
+- Burst tests (1000 requests in 1 second), does the limit kick in?
+- Distributed tests (100 IPs, 10 each), does per-user / per-token limit catch what per-IP doesn't?
 - Resource-specific limits: try to brute-force a specific user's password from across IPs. Does per-username limiting catch it?
 
 ## Schema and information disclosure
@@ -27,13 +27,13 @@
 ### Public-facing OpenAPI
 
 - Is your OpenAPI spec public? Decide deliberately. If yes, scrub internal-only fields, deprecated endpoints, debug routes.
-- Auto-generated specs from code can include endpoints you forgot existed — review before publishing.
+- Auto-generated specs from code can include endpoints you forgot existed, review before publishing.
 
 ### Error messages
 
 - No stack traces, SQL errors, or internal hostnames in production responses.
 - Validation errors describe the issue without revealing schema details ("invalid input" rather than "expected `internal_admin_flag` to be boolean").
-- 404 and 403 responses are consistent — don't reveal resource existence through differential responses (see also BOLA checklist).
+- 404 and 403 responses are consistent, don't reveal resource existence through differential responses (see also BOLA checklist).
 
 ### Response headers
 
