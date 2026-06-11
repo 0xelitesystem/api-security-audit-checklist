@@ -4,7 +4,7 @@ A working checklist for auditing API security. Covers REST (mapped to OWASP API 
 
 ## Files
 
-1. REST API Security — OWASP API Top 10 Checklist
+1. REST API Security, OWASP API Top 10 Checklist
 2. GraphQL Security Checklist
 3. gRPC Security Checklist
 4. BOLA / IDOR Deep Dive

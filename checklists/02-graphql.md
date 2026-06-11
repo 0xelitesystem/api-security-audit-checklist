@@ -12,7 +12,7 @@ GraphQL has specific concerns that REST checklists don't fully cover.
 
 - Is introspection (`__schema`, `__type`) disabled in production for public endpoints?
 - For internal/partner endpoints, is introspection authenticated?
-- Note: disabling introspection is obscurity, not security — assume attackers know your schema.
+- Note: disabling introspection is obscurity, not security, assume attackers know your schema.
 
 ## Authorization
 
@@ -22,7 +22,7 @@ GraphQL has specific concerns that REST checklists don't fully cover.
 
 ## Batching attacks
 
-- Multiple operations in a single request — is each rate-limited individually?
+- Multiple operations in a single request, is each rate-limited individually?
 - "Batched login" is a common bypass: 100 login attempts in one POST evades naive per-request rate limits.
 - Limit operations per request and arrays per query.
 
@@ -50,8 +50,8 @@ GraphQL has specific concerns that REST checklists don't fully cover.
 
 ## Tests
 
-- Send a deeply nested query — is it rejected?
-- Send 100 batched login mutations — does rate limiting catch it?
-- Query a field as an unauthenticated user that should require auth — is it blocked?
-- Query a field as a low-privilege user that should require admin — is it blocked?
-- Trigger an error and inspect the response — does it leak schema details?
+- Send a deeply nested query, is it rejected?
+- Send 100 batched login mutations, does rate limiting catch it?
+- Query a field as an unauthenticated user that should require auth, is it blocked?
+- Query a field as a low-privilege user that should require admin, is it blocked?
+- Trigger an error and inspect the response, does it leak schema details?
