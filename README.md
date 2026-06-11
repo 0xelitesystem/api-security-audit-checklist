@@ -24,7 +24,7 @@ Every checklist has three parts:
 
 ## Intended use
 
-Use this in code review, design review, or a focused audit window. Each checklist runs about 15, 60 minutes depending on API size. The tests are written assuming you have access to the API and a couple of test accounts; nothing requires a full lab environment.
+Use this in code review, design review, or a focused audit window. Each checklist runs about 15 to 60 minutes depending on API size. The tests are written assuming you have access to the API and a couple of test accounts; nothing requires a full lab environment.
 
 The OWASP API Top 10 is referenced because the categories are useful, not because the project is endorsed. Where the OWASP wording is vague, this checklist substitutes a more specific question.
 
